@@ -17,7 +17,7 @@ public class BonusService {
 
 		BigDecimal valor = funcionario.getSalario().multiply(BONUS_PERCENTAGE);
 		if (valor.compareTo(MAX_BONUS) > 0) {
-			valor = BigDecimal.ZERO;
+			throw new IllegalArgumentException("Funcionário com salário maior que 10000 não pode receber bônus");
 		}
 		return valor.setScale(2, RoundingMode.HALF_UP);
 	}
